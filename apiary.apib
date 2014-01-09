@@ -4,6 +4,14 @@ HOST: http://api.bombbomb.com
 # bombbomb
 The BombBomb API controls email creation, sending and tracking within the BombBomb system..
 
+## Authentication
+The **Bombbomb API** can be authenticated via a session token retrieved from the /authentication resource, or by an API_Key. 
+
+## Media Types
+Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.
+
+Requests with a message-body are using plain JSON to set or update resource states.
+
 # Group Emails
 Email related resources of the **Bombbomb API**
 
@@ -19,12 +27,10 @@ Email related resources of the **Bombbomb API**
 
         [{
           "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-          "title": "Jogging in park",
-          "description": ""
+          "title": "Jogging in park"
         }, {
           "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab",
-          "title": "Pick-up posters from post-office",
-          "description": ""
+          "title": "Pick-up posters from post-office"
         }]
 
 ### Create an Email [POST]
@@ -94,6 +100,8 @@ Retrieve email tracking details
                 "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab",
                 "title": "Pick-up posters from post-office"
             }
+
+
 
 
 
