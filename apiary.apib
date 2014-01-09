@@ -71,27 +71,40 @@ In addition it **embeds** *Client Resources* in the BombBomb API.
 
     + Headers
 
-            Link: <http:/api.gistfox.com/gists>;rel="self"
+            Link: <http:/api.bombbomb.com/clients>;rel="self"
 
     + Body
 
             {
-                "_links": {
-                    "self": { "href": "/clients" }
+                _links: {
+                    self: { "href": "/clients" }
                 },
-                "_embedded": {
-                    "clients": [
+                _embedded: {
+                    clients: [
                         {
-                            "_links" : {
-                                "self": { "href": "/clients/aaaa-aa-aaaa" }
+                            _links : {
+                                self: { "href": "/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa" }
                             },
-                            "id": "aaaa-aa-aaaa",
-                            "created_at": "2014-04-14T02:15:15Z",
-                            "name": "Fantastic Marketeers"
-                        }
+                            id: "cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa",
+                            created_at: "2014-01-02T07:15:15+00:00",
+                            name: "Fantastic Marketeers",
+                            login_email: "fan.market@gmail.com",
+                            status: "ACTIVE"
+                        },
+                        {
+                            _links : {
+                                self: { "href": "/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa" }
+                            },
+                            id: "cccccccc-2222-aaaa-aaaa-aaaaaaaaaaaa",
+                            created_at: "2013-11-05T08:15:15+00:00",
+                            name: "Adequate Advertisers",
+                            login_email: "ads_r_us@yahoo.com",
+                            status: "EXPIRED"
+                            
+                        },
                     ]
                 },
-                "total": 1
+                "total": 2
             }
             
 ### List all Clients [GET]
