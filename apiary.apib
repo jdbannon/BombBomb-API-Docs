@@ -1,0 +1,162 @@
+FORMAT: 1A
+HOST: http://api.bombbomb.com
+
+# bombbomb
+The BombBomb API controls email creation, sending and tracking within the BombBomb system.
+
+# Group Emails
+Email related resources of the **Bombbomb API**
+
+## Emails Collection [/emails]
+### List all Emails [GET]
+
+- id
+- title
+- description
+- content
+
++ Response 200 (application/json)
+
+        [{
+          "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+          "title": "Jogging in park"
+        }, {
+          "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab",
+          "title": "Pick-up posters from post-office"
+        }]
+
+### Create an Email [POST]
++ Request (application/json)
+
+        {
+            "title": "Buy cheese and bread for breakfast."
+        }
+
++ Response 201 (application/json)
+
+        { "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaac", "title": "Buy cheese and bread for breakfast." }
+
+## Email [/emails/{id}]
+A single Email object with all its details
+
+- id
+- title
+- description
+- content
+
++ Parameters
+    + id (required, guid, `aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa`) ... Guid `id` of the Email to perform action with. Has example value.
+
+### Retrieve an Email [GET]
+
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            {
+                "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab",
+                "title": "Pick-up posters from post-office"
+            }
+
+### Remove an Email [DELETE]
++ Response 204
+
+
+
+## Email Tracking [/emails/tracking/{id}]
+Retrieve email tracking details
+
+- id
+- title
+- description
+- content
+
++ Parameters
+    + id (required, guid, `aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa`) ... Guid `id` of the Email to perform action with. Has example value.
+
+### Retrieve tracking details on Email [GET]
+
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            {
+                "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab",
+                "title": "Pick-up posters from post-office"
+            }
+
+
+
+
+
+
+
+
+# Group Videos
+Video related resources of the **Bombbomb API**
+
+## Videos Collection [/videos]
+### List all Videos [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa", "title": "Jogging in park"
+        }, {
+          "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab", "title": "Pick-up posters from post-office"
+        }]
+
+### Create a Video [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+        { "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaac", "title": "Buy cheese and bread for breakfast." }
+
+## Video [/videos/{id}]
+Retrieve a single Video object with all its details. The Video resource has the following attributes:
+
+- id
+- title
+- description
+- content
+
+
++ Parameters
+    + id (required, string, `aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa`) ... Guid `id` of the Video to perform action with. Has example value.
+
+### Retrieve an Video [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab", "title": "Pretty funny video" }
+
+### Update Video Details [POST]
++ Request (application/json)
+
+        { "title": "Buy cheese and bread for breakfast." }
+
++ Response 201 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaab", "title": "Pretty funny video" }
+
