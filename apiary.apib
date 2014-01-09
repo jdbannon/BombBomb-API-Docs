@@ -7,7 +7,7 @@ The BombBomb API controls email creation, sending and tracking within the BombBo
 ## Authentication
 The **Bombbomb API** can be authenticated via a session token retrieved from the /authentication resource, or by an API_Key. 
 
-Almost every resource except for /clients:PUT, /email-jobs:GET, and /vidoes:GET requires authentication.
+Almost every resource except for /clients:POST, /email-jobs:GET, and /vidoes:GET requires authentication.
 
 ## Media Types
 Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.
@@ -36,19 +36,19 @@ The states *id* and *created_at* are assigned by the **BombBomb API** at the mom
 
     + Headers
 
-            Link: <http:/api.gistfox.com/gists/42>;rel="self", <http:/api.gistfox.com/gists/42/star>;rel="star"
+            Link: <http:/api.bombbomb.com/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa>;rel="self"
 
     + Body
 
             {
                 "_links": {
-                    "self": { "href": "/clients/aaaa-aa-aaaa-aa" },
+                    "self": { "href": "/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa" },
                 },
-                "id": "42",
-                "name" 
-                "created_at": "2014-04-14T02:15:15Z",
-                "description": "Description of Gist",
-                "content": "String contents"
+                id: "cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa",
+                created_at: "2014-01-02T07:15:15+00:00",
+                name: "Fantastic Marketeers",
+                login_email: "fan.market@gmail.com",
+                status: "ACTIVE"
             }
 
 ### Retrieve a Single Client [GET]
