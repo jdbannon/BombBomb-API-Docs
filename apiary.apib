@@ -28,8 +28,7 @@ A single Client object.
 The states *id* and *created_at* are assigned by the Gist Fox API at the moment of creation. 
 
 + Parameters
-    + id (string) ... ID of the Gist in the form of a hash.
-    + access_token (string, optional) ... Gist Fox API access token.
+    + id (string) ... ID of the Client in the form of a Guid.
 
 + Model (application/hal+json)
 
@@ -57,7 +56,7 @@ The states *id* and *created_at* are assigned by the Gist Fox API at the moment 
     
     [Client][]
 
-## Clients Collection [/clients]
+## Clients Collection [/clients{?since}]
 Collection of all Clients.
 
 The Client Collection resource has the following attribute:
@@ -102,7 +101,7 @@ In addition it **embeds** *Client Resources* in the BombBomb API.
         API_Key: ABCD123ABCD    
 
 + Parameters
-    + since (optional, string) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SS+00:00` Only gists updated at or after this time are returned.
+    + since (optional, string) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SS+00:00` Only clients created at or after this time are returned. Defaults to one week previous.
 
 + Response 200
 
