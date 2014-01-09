@@ -7,7 +7,7 @@ The BombBomb API controls email creation, sending and tracking within the BombBo
 ## Authentication
 The **Bombbomb API** can be authenticated via a session token retrieved from the /authentication resource, or by an API_Key. 
 
-If a resource action mentions an API_Key header then that resource requires authentication.
+Almost every resource except for /clients:PUT, /email-jobs:GET, and /vidoes:GET requires authentication.
 
 ## Media Types
 Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.
@@ -104,14 +104,10 @@ In addition it **embeds** *Client Resources* in the BombBomb API.
                         },
                     ]
                 },
-                "total": 2
+                total: 2
             }
             
 ### List all Clients [GET]
-
-+ Headers
-        
-        API_Key: ABCD123ABCD    
 
 + Parameters
     + since (optional, string) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SS+00:00` Only clients created at or after this time are returned. Defaults to one week previous.
