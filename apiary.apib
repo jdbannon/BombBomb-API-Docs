@@ -4,10 +4,14 @@ HOST: http://api.bombbomb.com
 # bombbomb
 The BombBomb API controls email creation, sending and tracking within the BombBomb system..
 
+## Conventions
+This API attempts to follow RESTful constraints. In cases where the standard HTTP verbs (GET, PUT, POST, DELETE) are not good descriptors of functionality, we may expose a controller resource. Controllers, by convention will begin with a tilde (~).
+
+So, a DELETE call to the resource /clients/c-1/lists/list-3/contact-2 will remove the actual contact resource as per the definition of DELETE. You may POST a *remove-contacts* task to the list controller instead to remove the contact from the list itself: POST /clients/c-1/lists/list-3/~remove-contacts?contacts[]=contact-2
 ## Authentication
 The **Bombbomb API** can be authenticated via a session token retrieved from the /authentication resource, or by an API_Key. 
 
-Almost every resource except for /clients:POST, /email-jobs:GET, and /vidoes:GET requires authentication.
+Almost every resource except for /clients:POST, /email-jobs/{job-id}:GET, and /vidoes/{video-id}:GET requires authentication.
 
 ## Media Types
 Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_specification/blob/master/hal_specification.md) media-type to represent resources states and affordances.
@@ -61,7 +65,7 @@ The states *id* and *created_at* are assigned by the **BombBomb API** at the mom
 
 This will create a BombBomb client assuming that the login_email is not currently associated with an existing client.
 
-A client is initially given a FREE TRIAL subscription. This can be changed by adding a payment method and then alternative subscription plan.
+A client is initially given a FREE_TRIAL subscription. This can be changed by PUTing a payment method and then PUTing and alternative subscription plan.
 
 + Request (application/json)
 
