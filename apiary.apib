@@ -87,6 +87,69 @@ A client is initially given a FREE_TRIAL subscription. This can be changed by PU
             status: "ACTIVE"
         }
 
+## Contact [/clients/{id}/contacts/{id|email}]
+A single Contact object. 
+
+- id
+- email
+- first_name
+- last_name
+- add_date
+- sendable [true/false]
+- opt_out [true/false]
+- suppressed [true/false]
+- marked_abuse [true/false]
+- last_bounce
+- hard_bounce_count
+- soft_bounce_count
+- engagement_score
+
++ Parameters
+    + id (Guid, required) ... ID of the Contact in the form of a Guid.
+
+
++ Model (application/hal+json)
+
+    HAL+JSON representation of Gist Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.
+
+    + Headers
+
+            Link: <http://api.bombbomb.com/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa/contacts/cccccccc-5555-aaaa-aaaa-aaaaaaaaaaaa>;rel="self">
+
+    + Body
+
+            {
+                "_links": {
+                    "self": { "href": "/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa/contacts/cccccccc-5555-aaaa-aaaa-aaaaaaaaaaaa" },
+                },
+                id: "cccccccc-5555-aaaa-aaaa-aaaaaaaaaaaa",
+                email: "someone@gmail.com",
+                first_name: "Jim",
+                last_name: "Stone",
+                add_date: "2014-01-02T07:15:15+00:00",
+                sendable: true,
+                opt_out: false,
+                suppressed: false,
+                marked_abuse: false,
+                last_bounce: {
+                    date: "2013-11-02T07:15:15+00:00",
+                    code: "5.2.1",
+                    diagnostic: "smtp;550 5.2.1 The user you are trying to contact is receiving mail at a rate that prevents additional messages from being delivered. For more information, please visit http://support.google.com/mail/bin/answer.py?answer=6592 d10si20135078vdv.15 - gsmtp"
+                },
+                hard_bounce_count: 0,
+                soft_bounce_count: 3,
+                engagement_score: 2,
+                status: "ACTIVE",
+                subscription: ""
+            }
+
+### Retrieve a Single Client [GET]
++ Response 200
+    
+    [Contact][]
+
+
+
 ## Contact-Lists Collection [/clients/{id}/contact-lists]
 Retrieves a collection of all the client's lists 
 
