@@ -1,7 +1,7 @@
 FORMAT: 1A
 HOST: http://api.bombbomb.com
 
-# bombbomb
+# BombBomb
 The BombBomb API controls email creation, sending and tracking within the BombBomb system..
 
 ## Conventions
@@ -87,6 +87,63 @@ A client is initially given a FREE_TRIAL subscription. This can be changed by PU
             status: "ACTIVE"
         }
 
+## Contact-Lists Collection [/clients/{id}/contact-lists]
+Retrieves a collection of all the client's lists 
+
+The List Collection resource has the following attribute:
+
+- total
+
+In addition it **embeds** *Client Resources* in the BombBomb API.
+
++ Model (application/hal+json)
+
+    HAL+JSON representation of Client Collection Resource. The Client resources in collections are embedded. Note the embedded Clients resource are incomplete representations of the Client in question. Use the respective Client link to retrieve its full representation.
+
+    + Headers
+
+            Link: <http://api.bombbomb.com/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa/contact-lists>;rel="self"
+
+    + Body
+
+            {
+                _links: {
+                    self: { "href": "/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa/contact-lists" }
+                },
+                _embedded: {
+                    contact-lists: [
+                        {
+                            _links : {
+                                self: { "href": "/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa" }
+                            },
+                            id: "cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa",
+                            created_at: "2014-01-02T07:15:15+00:00",
+                            name: "Fantastic Marketeers",
+                            login_email: "fan.market@gmail.com",
+                            status: "ACTIVE"
+                        },
+                        {
+                            _links : {
+                                self: { "href": "/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa" }
+                            },
+                            id: "cccccccc-2222-aaaa-aaaa-aaaaaaaaaaaa",
+                            created_at: "2013-11-05T08:15:15+00:00",
+                            name: "Adequate Advertisers",
+                            login_email: "ads_r_us@yahoo.com",
+                            status: "EXPIRED"
+                            
+                        },
+                    ]
+                },
+                total: 2
+            }
+            
+### List all Contact-Lists [GET]
+
++ Response 200
+
+    [Contact-Lists Collection][]
+    
 ## Clients Collection [/clients{?since}]
 Collection of all Clients.
 
@@ -98,7 +155,7 @@ In addition it **embeds** *Client Resources* in the BombBomb API.
 
 + Model (application/hal+json)
 
-    HAL+JSON representation of Client Collection Resource. The Client resources in collections are embedded. Note the embedded Gists resource are incomplete representations of the Client in question. Use the respective Client link to retrieve its full representation.
+    HAL+JSON representation of Client Collection Resource. The Client resources in collections are embedded. Note the embedded Clients resource are incomplete representations of the Client in question. Use the respective Client link to retrieve its full representation.
 
     + Headers
 
