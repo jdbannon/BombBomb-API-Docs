@@ -48,13 +48,40 @@ The states *id* and *created_at* are assigned by the **BombBomb API** at the mom
                 created_at: "2014-01-02T07:15:15+00:00",
                 name: "Fantastic Marketeers",
                 login_email: "fan.market@gmail.com",
-                status: "ACTIVE"
+                status: "ACTIVE",
+                subscription: ""
             }
 
 ### Retrieve a Single Client [GET]
 + Response 200
     
     [Client][]
+
+### Create a Client [POST]
+
+This will create a BombBomb client assuming that the login_email is not currently associated with an existing client.
+
+A client is initially given a FREE TRIAL subscription. This can be changed by adding a payment method and then alternative subscription plan.
+
++ Request (application/json)
+
+        { 
+            login_email: "new.user@mail.com",
+            name: "Real Scrappy Realtors",
+        }
+
++ Response 201 (application/json)
+
+        {
+            "_links": {
+                "self": { "href": "/clients/cccccccc-1111-aaaa-aaaa-aaaaaaaaaaaa" },
+            },
+            id: "cccccccc-3333-aaaa-aaaa-aaaaaaaaaaaa",
+            created_at: "2014-01-09T16:22:03-07:00",
+            name: "Fantastic Marketeers",
+            login_email: "fan.market@gmail.com",
+            status: "ACTIVE"
+        }
 
 ## Clients Collection [/clients{?since}]
 Collection of all Clients.
